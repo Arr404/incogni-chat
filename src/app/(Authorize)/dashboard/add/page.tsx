@@ -9,23 +9,11 @@ import {
     List,
     ListItemText,
     CircularProgress,
-    createTheme,
-    ThemeProvider,
     ListItemButton, Chip, Button
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
 import {useRouter} from "next/navigation";
-
-// Theme Configuration
-const theme = createTheme({
-    palette: {
-        primary: { main: '#00ADB5' },
-        background: { default: '#222831', paper: '#393E46' },
-        text: { primary: '#FFFFFF', secondary: '#CCCCCC' }
-    },
-    typography: { fontFamily: 'Roboto, Arial, sans-serif' }
-});
 
 // Problem Categories
 const PROBLEM_CATEGORIES = [
@@ -83,7 +71,6 @@ const ProblemSearchPage: React.FC = () => {
 
     if (isLoading) {
         return (
-            <ThemeProvider theme={theme}>
                 <Box
                     sx={{
                         display: 'flex',
@@ -109,12 +96,10 @@ const ProblemSearchPage: React.FC = () => {
                         </Typography>
                     </motion.div>
                 </Box>
-            </ThemeProvider>
         );
     }
 
     return (
-        <ThemeProvider theme={theme}>
             <Box
                 sx={{
                     overflow: 'hidden',
@@ -210,7 +195,6 @@ const ProblemSearchPage: React.FC = () => {
                     </motion.div>
                 </Container>
             </Box>
-        </ThemeProvider>
     );
 };
 

@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -14,6 +15,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.8",
     "@mui/material": "^6.4.8",
+    "firebase": "^11.6.0",
     "framer-motion": "^12.6.0",
     "lucide-react": "^0.483.0",
     "next": "15.2.3",

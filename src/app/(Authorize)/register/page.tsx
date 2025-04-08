@@ -11,8 +11,6 @@ import {
     Stepper,
     Step,
     StepLabel,
-    createTheme,
-    ThemeProvider,
     Select,
     MenuItem,
     FormControl,
@@ -20,51 +18,6 @@ import {
 } from '@mui/material';
 import {useRouter} from "next/navigation";
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#00ADB5',
-        },
-        background: {
-            default: '#222831',
-            paper: '#393E46'
-        },
-        text: {
-            primary: '#FFFFFF',
-            secondary: '#CCCCCC'
-        }
-    },
-    typography: {
-        fontFamily: 'Roboto, Arial, sans-serif'
-    },
-    components: {
-        MuiOutlinedInput: {
-            styleOverrides: {
-                root: {
-                    '& .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#00ADB5',
-                    },
-                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#00ADB5',
-                    },
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                        borderColor: '#00ADB5',
-                    },
-                },
-            },
-        },
-        MuiInputLabel: {
-            styleOverrides: {
-                root: {
-                    color: '#CCCCCC',
-                    '&.Mui-focused': {
-                        color: '#00ADB5',
-                    },
-                },
-            },
-        },
-    }
-});
 
 const RegistrationPage = () => {
     const router = useRouter();
@@ -106,7 +59,7 @@ const RegistrationPage = () => {
             case 0:
                 return (
                     <Grid container spacing={2}>
-                        
+
                         <Grid item xs={12} md={6}>
                             <FormControl fullWidth variant="outlined">
                                 <InputLabel>Gender</InputLabel>
@@ -252,7 +205,7 @@ const RegistrationPage = () => {
     };
 
     return (
-        <ThemeProvider theme={theme}>
+
             <Box
                 sx={{
                     minHeight: '100vh',
@@ -328,7 +281,6 @@ const RegistrationPage = () => {
                     </Paper>
                 </Container>
             </Box>
-        </ThemeProvider>
     );
 };
 

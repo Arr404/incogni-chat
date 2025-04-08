@@ -28,16 +28,6 @@ interface Chat {
     online: boolean;
 }
 
-// Theme Configuration
-const theme = createTheme({
-    palette: {
-        primary: { main: '#00ADB5' },
-        background: { default: '#222831', paper: '#393E46' },
-        text: { primary: '#FFFFFF', secondary: '#CCCCCC' }
-    },
-    typography: { fontFamily: 'Roboto, Arial, sans-serif' }
-});
-
 const MatchingApp: React.FC = () => {
     // Initial State
     const [matches, setMatches] = useState<Match[]>([
@@ -81,7 +71,6 @@ const MatchingApp: React.FC = () => {
     };
 
     return (
-        <ThemeProvider theme={theme}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -121,7 +110,6 @@ const MatchingApp: React.FC = () => {
                     </Container>
                 </Box>
             </motion.div>
-        </ThemeProvider>
     );
 };
 
