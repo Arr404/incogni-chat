@@ -1,22 +1,16 @@
 'use client'
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { GoogleAuthProvider, getAuth, signInWithPopup, Auth, AuthError } from 'firebase/auth';
-import { Box, Button, Container, Paper, Typography, CircularProgress, Alert, Fade } from '@mui/material';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/navigation';
+import {Auth, AuthError, getAuth, signInWithPopup} from 'firebase/auth';
+import {Alert, Box, Button, CircularProgress, Container, Fade, Paper, Typography} from '@mui/material';
 import GoogleIcon from '@mui/icons-material/Google';
-import app from '@/services/init';
+import {googleProvider, auth} from '@/services/init';
 
 export default function Login() {
     const router = useRouter();
-    const [auth, setAuth] = useState<Auth | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        // Initialize Firebase auth inside useEffect to ensure it only runs client-side
-        const auth = getAuth(app);
-        setAuth(auth);
-    }, []);
 
     const handleGoogleLogin = async (): Promise<void> => {
         if (!auth) return;
@@ -25,8 +19,7 @@ export default function Login() {
         setError(null);
 
         try {
-            const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
+            await signInWithPopup(auth, googleProvider);
             router.push('/register');
         } catch (error) {
             const authError = error as AuthError;
